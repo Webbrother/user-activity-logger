@@ -4,6 +4,8 @@ export default class EventListener {
         this._eventCollection = eventCollection;
         this._logDataProvider = logDataProvider;
 
+        this._eventCollection.setCommonData(logDataProvider.getCommonData());
+
         this.register(type);
     }
 
@@ -11,9 +13,8 @@ export default class EventListener {
         const logData = this._logDataProvider.getLogData(event);
         this._eventCollection.push(logData);
 
-        console.log('logData:', logData);
+        console.log('Logged data:', logData);
     }
-
 
     register() {
         document.addEventListener(this._type, this, true);

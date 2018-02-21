@@ -7,6 +7,10 @@ export default class LogDataProvider {
         return {
         // assignment id
         // unit id
+
+        // _args['task_id'] = parseInt(document.getElementById("assignment-job-id").innerHTML);
+        // _args['worker_id'] = parseInt(document.getElementById("assignment-worker-id").innerHTML);
+
         // user agent
         // trackSession (?)
         // idle (?)
@@ -50,6 +54,7 @@ export default class LogDataProvider {
     }
 
     _getClickEventData({target}) {
+        // todo: coordinates?
         return {
             targetPath: this._getDomPath(target)
         }
@@ -67,7 +72,6 @@ export default class LogDataProvider {
             targetPath
         }
     }
-
 
     _getCopyEventData({target}) {
         return {

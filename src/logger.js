@@ -55,5 +55,4 @@ export default class Logger {
         this._eventCollection.destroy();
         this._logDataProvider.destroy();
     }
-
 }

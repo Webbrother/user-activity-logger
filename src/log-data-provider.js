@@ -70,8 +70,7 @@ export default class LogDataProvider {
 
     _getKeyupEventData({keyCode, key, code, target}) {
         const targetPath = this._getDomPath(target);
-
-        // add secondary keys (alt, ctrl ... etc)
+        // todo: add secondary keys (alt, ctrl ... etc)
 
         return {
             keyCode,

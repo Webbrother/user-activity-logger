@@ -1,18 +1,3 @@
-// Event types:
-// Minimal set:
-//      an element has received focus,
-//      an input element has been clicked.
-// Intermediate: minimal + the following:
-//      keyboard events while the focus on an input element (i.e., typing an answer),
-//      clipboard events:
-//          the selection has been copied to the clipboard
-//          OR
-//          the item from the clipboard has been pasted.
-// Maximal: minimal + intermediate + the following:
-//     mouse movement events,
-//     scrolling
-
-
 import EventCollection from './event-collection';
 import EventListener from './event-listener';
 import LogDataProvider from './log-data-provider';
@@ -24,13 +9,16 @@ const eventTypes = [
     'keyup',
     'copy',
     'cut',
-    'paste'
+    'paste',
+    'mousemove',
+    'scroll'
 ];
 
 export default class Logger {
     constructor() {
         this.init({
-            interval: 5000
+            interval: 5000,
+            debounceInterval: 200
         });
     }
 
@@ -42,8 +30,10 @@ export default class Logger {
         this._logDataProvider = new LogDataProvider(config);
 
         this._eventListeres = eventTypes.map(type => new EventListener(
-            {type},
             {
+                ...config,
+                type
+            }, {
                 eventCollection: this._eventCollection,
                 logDataProvider: this._logDataProvider
             }));

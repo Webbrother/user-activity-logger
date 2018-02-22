@@ -38,6 +38,14 @@ export default class LogDataProvider {
             case 'paste':
                 data = this._getPasteEventData(event);
                 break;
+
+            case 'mousemove':
+                data = this._getMouseMoveEventData(event);
+                break;
+
+            case 'scroll':
+                data = this._getScrollEventData(event);
+                break;
         }
 
         return {
@@ -84,6 +92,27 @@ export default class LogDataProvider {
         return {
             targetPath: this._getDomPath(target),
             text: (clipboardData || window.clipboardData).getData('Text')
+        }
+    }
+
+    _getMouseMoveEventData({clientX, clientY}) {
+        return {
+            clientX,
+            clientY
+        }
+    }
+
+    _getScrollEventData({target}) {
+        let element;
+        if (target === document) {
+            element = document.documentElement;
+        } else {
+            element = target;
+        }
+
+        return {
+            targetPath: this._getDomPath(element),
+            scrollTop: element.scrollTop
         }
     }
 

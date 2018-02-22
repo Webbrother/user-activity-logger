@@ -50,7 +50,7 @@
 window.userActivityLogge.destroy();
 ```
 
-4. Config
+##Config
 
 At the moment following eventTypes are supported: 
 focus, click, keyup, copy, cut, paste, mousemove, scroll

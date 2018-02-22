@@ -4,7 +4,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 export default {
 	entry: './src/index.js',
 	output: {
-		filename: 'bundle.js',
+		filename: 'logger.min.js',
 		path: path.resolve(__dirname, 'dist')
 	},
     devtool: 'source-map',

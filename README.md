@@ -7,10 +7,12 @@
 ## How to use
 1. Add script to your page
 
-`<script type="text/javascript" src="logger.min.js"></script>`
+```html
+<script type="text/javascript" src="logger.min.js"></script>
+```
 
 2. Initialyze logger
-```
+```html
 <script>
     (function() {
         'use strict';
@@ -44,7 +46,9 @@
 
 3. Destroy logger when you need it 
 
-`window.userActivityLogge.destroy();`
+```javascript
+window.userActivityLogge.destroy();
+```
 
 4. Config
 

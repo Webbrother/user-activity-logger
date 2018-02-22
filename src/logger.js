@@ -3,32 +3,13 @@ import EventListener from './event-listener';
 import LogDataProvider from './log-data-provider';
 import API from './api';
 
-const eventTypes = [
-    'focus',
-    'click',
-    'keyup',
-    'copy',
-    'cut',
-    'paste',
-    'mousemove',
-    'scroll'
-];
-
 export default class Logger {
-    constructor() {
-        this.init({
-            interval: 5000,
-            debounceInterval: 200
-        });
-    }
-
     init(config) {
-        this._config = config;
-
         const api = new API(config);
         this._eventCollection = new EventCollection(config, {api});
         this._logDataProvider = new LogDataProvider(config);
 
+        const {eventTypes} = config;
         this._eventListeres = eventTypes.map(type => new EventListener(
             {
                 ...config,

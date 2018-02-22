@@ -279,6 +279,34 @@
             }, false);
         })();
     </script>
+    <script>
+        (function() {
+            'use strict';
+
+            window.addEventListener('load', function() {
+                var config = {
+                    api: {
+                        url: 'https://lf1tgbnnm2.execute-api.us-east-1.amazonaws.com/dev/events',
+                        method: 'post'
+                    },
+                    requestInterval: 5000,
+                    eventTypes: [
+                        'focus',
+                        'click',
+                        'keyup',
+                        'copy',
+                        'cut',
+                        'paste',
+                        'mousemove',
+                        'scroll'
+                    ],
+                    debounceInterval: 200
+                };
+
+                window.userActivityLogger.init(config);
+            });
+        })();
+    </script>
 </body>
 </html>
 

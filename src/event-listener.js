@@ -1,5 +1,7 @@
+import debounce from 'debounce';
+
 export default class EventListener {
-    constructor({type}, {eventCollection, logDataProvider}) {
+    constructor({type, debounceInterval}, {eventCollection, logDataProvider}) {
         this._type = type;
         this._eventCollection = eventCollection;
         this._logDataProvider = logDataProvider;
@@ -7,6 +9,10 @@ export default class EventListener {
         this._eventCollection.setCommonData(logDataProvider.getCommonData());
 
         this.register(type);
+
+        if (type === 'mousemove' || type === 'scroll') {
+            this.handleEvent = debounce(this.handleEvent, debounceInterval);
+        }
     }
 
     handleEvent(event) {
@@ -17,10 +23,11 @@ export default class EventListener {
     }
 
     register() {
-        document.addEventListener(this._type, this, true);
+        window.addEventListener(this._type, this, true);
     }
 
     destroy() {
-        document.removeEventListener(this._type, this, true);
+        this.handleEvent = null;
+        window.removeEventListener(this._type, this, true);
     }
 }

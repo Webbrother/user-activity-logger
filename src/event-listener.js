@@ -18,8 +18,6 @@ export default class EventListener {
     handleEvent(event) {
         const logData = this._logDataProvider.getLogData(event);
         this._eventCollection.push(logData);
-
-        console.log('Logged data:', logData);
     }
 
     register() {

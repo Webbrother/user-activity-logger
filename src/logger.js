@@ -1,7 +1,7 @@
+import API from './api';
 import EventCollection from './event-collection';
 import EventListener from './event-listener';
 import LogDataProvider from './log-data-provider';
-import API from './api';
 
 export default class Logger {
     init(config) {

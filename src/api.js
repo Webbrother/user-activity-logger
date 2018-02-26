@@ -7,7 +7,7 @@ export default class API {
     }
 
     post(data) {
-        axios({
+        return axios({
             method: this._method,
             url: this._url,
             data

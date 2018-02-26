@@ -5,15 +5,15 @@ export default class LogDataProvider {
 
     getCommonData() {
         return {
-        // assignment id
-        // unit id
+            // assignment id
+            // unit id
 
-        // _args['task_id'] = parseInt(document.getElementById("assignment-job-id").innerHTML);
-        // _args['worker_id'] = parseInt(document.getElementById("assignment-worker-id").innerHTML);
+            // _args['task_id'] = parseInt(document.getElementById("assignment-job-id").innerHTML);
+            // _args['worker_id'] = parseInt(document.getElementById("assignment-worker-id").innerHTML);
 
-        // user agent
-        // trackSession (?)
-        // idle (?)
+            // user agent
+            // trackSession (?)
+            // idle (?)
         }
     }
 

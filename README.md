@@ -16,6 +16,12 @@
 <script>
     (function() {
         'use strict';
+        var commonData = {
+            // Put here any common data which should be sent within log information
+            // Example:
+            // taskId: parseInt(document.getElementById("assignment-job-id").innerHTML),
+            // workerId: parseInt(document.getElementById("assignment-worker-id").innerHTML)
+        }
 
         window.addEventListener('load', function() {
             var config = {
@@ -34,7 +40,8 @@
                     'mousemove',
                     'scroll'
                 ],
-                debounceInterval: 200
+                debounceInterval: 200,
+                commonData: commonData
             };
 
             window.userActivityLogger.init(config);

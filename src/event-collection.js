@@ -1,7 +1,7 @@
 import LocalStorage from './local-storage';
 
 export default class EventCollection {
-    constructor({requestInterval}, {api}) {
+    constructor({requestInterval, commonData}, {api}) {
         this._api = api;
         this._ls = new LocalStorage();
 
@@ -16,18 +16,14 @@ export default class EventCollection {
             this._events = [];
 
             this._api.post({
-                commonData: this._commonData,
+                commonData,
                 events: sentEvents
             }).then(r => {
                 this._ls.remove('events');
-            }).catch(err => {
+            }).catch(e => {
                 this._ls.set('events', sentEvents);
             });
         }, requestInterval);
-    }
-
-    setCommonData(data) {
-        this._commonData = data;
     }
 
     push(event) {

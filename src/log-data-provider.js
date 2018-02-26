@@ -1,22 +1,4 @@
 export default class LogDataProvider {
-    constructor(config) {
-        this._config = config;
-    }
-
-    getCommonData() {
-        return {
-            // assignment id
-            // unit id
-
-            // _args['task_id'] = parseInt(document.getElementById("assignment-job-id").innerHTML);
-            // _args['worker_id'] = parseInt(document.getElementById("assignment-worker-id").innerHTML);
-
-            // user agent
-            // trackSession (?)
-            // idle (?)
-        }
-    }
-
     getLogData(event) {
         let data = {};
 

@@ -6,8 +6,6 @@ export default class EventListener {
         this._eventCollection = eventCollection;
         this._logDataProvider = logDataProvider;
 
-        this._eventCollection.setCommonData(logDataProvider.getCommonData());
-
         this.register(type);
 
         if (type === 'mousemove' || type === 'scroll') {

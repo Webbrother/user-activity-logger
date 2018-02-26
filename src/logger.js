@@ -7,7 +7,7 @@ export default class Logger {
     init(config) {
         const api = new API(config);
         this._eventCollection = new EventCollection(config, {api});
-        this._logDataProvider = new LogDataProvider(config);
+        this._logDataProvider = new LogDataProvider();
 
         const {eventTypes} = config;
         this._eventListeres = eventTypes.map(type => new EventListener(

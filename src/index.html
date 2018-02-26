@@ -241,6 +241,10 @@
                     saepe sint tempora! Impedit, nulla, voluptatum!
                 </div>
             </div>
+            <div>Some elements for config commonData
+                <div id="id1">123</div>
+                <div id="id2">456</div>
+            </div>
         </div>
     </div>
 
@@ -296,6 +300,11 @@
         'use strict';
 
         window.addEventListener('load', function () {
+            var commonData = {
+                id1: parseInt(document.getElementById("id1").innerHTML),
+                id2: parseInt(document.getElementById("id2").innerHTML)
+            };
+
             var config = {
                 api: {
                     url: 'https://lf1tgbnnm2.execute-api.us-east-1.amazonaws.com/dev/events',
@@ -312,7 +321,8 @@
                     'mousemove',
                     'scroll'
                 ],
-                debounceInterval: 200
+                debounceInterval: 200,
+                commonData: commonData
             };
 
             window.userActivityLogger.init(config);

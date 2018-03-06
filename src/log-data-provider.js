@@ -1,37 +1,37 @@
 export default class LogDataProvider {
     getLogData(event) {
-        let data = {};
+        let payload = {};
 
         switch (event.type) {
             case 'focus':
-                data = this._getFocusEventData(event);
+                payload = this._getFocusEventData(event);
                 break;
             case 'click':
-                data = this._getClickEventData(event);
+                payload = this._getClickEventData(event);
                 break;
             case 'keyup':
-                data = this._getKeyupEventData(event);
+                payload = this._getKeyupEventData(event);
                 break;
             case 'copy':
             case 'cut':
-                data = this._getCopyEventData(event);
+                payload = this._getCopyEventData(event);
                 break;
 
             case 'paste':
-                data = this._getPasteEventData(event);
+                payload = this._getPasteEventData(event);
                 break;
 
             case 'mousemove':
-                data = this._getMouseMoveEventData(event);
+                payload = this._getMouseMoveEventData(event);
                 break;
 
             case 'scroll':
-                data = this._getScrollEventData(event);
+                payload = this._getScrollEventData(event);
                 break;
         }
 
         return {
-            ...data,
+            payload,
             type: event.type,
             timestamp: Date.now()
         };

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -244,6 +244,7 @@
             <div>Some elements for config commonData
                 <div id="id1">123</div>
                 <div id="id2">456</div>
+                <div id="id3">789</div>
             </div>
         </div>
     </div>
@@ -301,13 +302,15 @@
 
         window.addEventListener('load', function () {
             var commonData = {
-                id1: parseInt(document.getElementById("id1").innerHTML),
-                id2: parseInt(document.getElementById("id2").innerHTML)
+                workerId: parseInt(document.getElementById("id1").innerHTML),
+                assignmentId: parseInt(document.getElementById("id2").innerHTML),
+                unitId: parseInt(document.getElementById("id3").innerHTML)
             };
 
             var config = {
                 api: {
                     url: 'https://lf1tgbnnm2.execute-api.us-east-1.amazonaws.com/dev/events',
+                    // url: 'http://cors-anywhere.herokuapp.com/',
                     method: 'post'
                 },
                 requestInterval: 5000,
@@ -331,5 +334,3 @@
 </script>
 </body>
 </html>
-
-

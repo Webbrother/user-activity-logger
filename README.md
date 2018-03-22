@@ -17,10 +17,11 @@
     (function() {
         'use strict';
         var commonData = {
-            // Put here any common data which should be sent within log information
+            // workerId: *required
+            // 
+            // Put here common data which should be sent within log information
             // Example:
             // taskId: parseInt(document.getElementById("assignment-job-id").innerHTML),
-            // workerId: parseInt(document.getElementById("assignment-worker-id").innerHTML)
         }
 
         window.addEventListener('load', function() {

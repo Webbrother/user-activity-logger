@@ -5,6 +5,11 @@ import LogDataProvider from './log-data-provider';
 
 export default class Logger {
     init(config) {
+        if (!config.commonData || !config.commonData.workerId) {
+            console.error(new Error('no workerId'));
+            return;
+        }
+
         const api = new API(config);
         this._eventCollection = new EventCollection(config, {api});
         this._logDataProvider = new LogDataProvider();

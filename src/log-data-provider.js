@@ -1,4 +1,8 @@
 export default class LogDataProvider {
+    constructor() {
+        this._lastNow = Date.now();
+    }
+
     getLogData(event) {
         let payload = {};
 
@@ -30,10 +34,18 @@ export default class LogDataProvider {
                 break;
         }
 
+        // To avoid of timestamp duplication we need to cache last timestamp
+        let now = Date.now();
+        if (now <= this._lastNow) {
+            now = ++this._lastNow
+        } else {
+            this._lastNow = now
+        };
+
         return {
             payload,
             type: event.type,
-            timestamp: Date.now()
+            timestamp: now
         };
     }
 

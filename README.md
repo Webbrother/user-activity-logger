@@ -32,6 +32,7 @@
                 },
                 requestInterval: 5000,
                 eventTypes: [
+                    'start',
                     'focus',
                     'click',
                     'keyup',

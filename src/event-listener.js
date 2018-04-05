@@ -6,15 +6,20 @@ export default class EventListener {
         this._eventCollection = eventCollection;
         this._logDataProvider = logDataProvider;
 
-        this.register(type);
+        if (type === 'start') {
+            this.handleEvent({type});
+            return;
+        }
 
         if (type === 'mousemove' || type === 'scroll') {
             this.handleEvent = debounce(this.handleEvent, debounceInterval);
         }
+
+        this.register();
     }
 
     handleEvent(event) {
-        const logData = this._logDataProvider.getLogData(event);
+        const logData = this._logDataProvider.getLogData(event); // todo: move logDataProvider to eventCollection.push method
         this._eventCollection.push(logData);
     }
 

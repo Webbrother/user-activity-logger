@@ -4,7 +4,7 @@ export default class LogDataProvider {
     }
 
     getLogData(event) {
-        let payload = {};
+        let payload = null;
 
         switch (event.type) {
             case 'focus':

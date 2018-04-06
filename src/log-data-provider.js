@@ -11,6 +11,7 @@ export default class LogDataProvider {
                 payload = this._getFocusEventData(event);
                 break;
             case 'click':
+            case 'submit':
                 payload = this._getClickEventData(event);
                 break;
             case 'keyup':

@@ -35,6 +35,7 @@
                     'start',
                     'focus',
                     'click',
+                    'submit'
                     'keyup',
                     'copy',
                     'cut',

@@ -15,6 +15,13 @@ export default class EventListener {
             this.handleEvent = debounce(this.handleEvent, debounceInterval);
         }
 
+        if (type === 'click') {
+            this.handleEvent = (event) => {
+                // Ignore click by 'submit' button
+                if (event.target.type !== 'submit') this.constructor.prototype.handleEvent.call(this, event);
+            }
+        }
+
         this.register();
     }
 

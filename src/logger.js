@@ -1,6 +1,6 @@
 import API from './api';
 import EventCollection from './event-collection';
-import EventListener from './event-listener';
+import eventListenerFactory from './event-listeners/event-listener-factory';
 import LogDataProvider from './log-data-provider';
 
 export default class Logger {
@@ -15,7 +15,7 @@ export default class Logger {
         this._logDataProvider = new LogDataProvider();
 
         const {eventTypes} = config;
-        this._eventListeres = eventTypes.map(type => new EventListener(
+        this._eventListeres = eventTypes.map(type => eventListenerFactory(
             {
                 ...config,
                 type

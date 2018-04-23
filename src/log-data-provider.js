@@ -126,7 +126,10 @@ export default class LogDataProvider {
                     sibCount++;
                 }
             }
-            if (el.hasAttribute('id') && el.id != '') {
+
+            if (el.hasAttribute('name') && el.name !== '') {
+                stack.unshift(el.nodeName.toLowerCase() + '(name=' + el.name + ')');
+            } else if (el.hasAttribute('id') && el.id !== '') {
                 stack.unshift(el.nodeName.toLowerCase() + '#' + el.id);
             } else if (sibCount > 1) {
                 stack.unshift(el.nodeName.toLowerCase() + ':eq(' + sibIndex + ')');

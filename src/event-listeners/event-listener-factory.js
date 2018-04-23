@@ -1,6 +1,7 @@
 import EventListener from "./event-listener";
 
 import EventListenerClick from './event-listener-click';
+import EventListenerFocus from './event-listener-focus';
 
 export default function eventListenerFactory(config, dependencies) {
     let Klass;
@@ -8,6 +9,10 @@ export default function eventListenerFactory(config, dependencies) {
     switch (config.type) {
         case 'click':
             Klass = EventListenerClick;
+            break;
+
+        case 'focus':
+            Klass = EventListenerFocus;
             break;
 
         default:

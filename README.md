@@ -33,6 +33,7 @@
                 requestInterval: 5000,
                 eventTypes: [
                     'start',
+                    'unload',
                     'focus',
                     'click',
                     'submit'

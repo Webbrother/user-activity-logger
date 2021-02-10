@@ -17,6 +17,12 @@ export default class API {
             .then(this._json);
     }
 
+    sendBeacon(data) {
+        if (navigator && navigator.sendBeacon) {
+            return navigator.sendBeacon(this._url, data);
+        }
+    }
+
     _status(response) {
         if (response.status >= 200 && response.status < 300) {
             return Promise.resolve(response);

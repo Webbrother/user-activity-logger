@@ -19,8 +19,7 @@ export default class EventListener {
     }
 
     handleEvent(event) {
-        const logData = this._logDataProvider.getLogData(event); // todo: move logDataProvider to eventCollection.push method
-        this._eventCollection.push(logData);
+        this._eventCollection.push(event);
     }
 
     register() {
